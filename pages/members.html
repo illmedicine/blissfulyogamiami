@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blissful Yoga Miami Members Area — exclusive content, free consultations, and direct connection with Paola Villegas.">
+  <title>Members Area — Blissful Yoga Miami</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘‍♀️</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#8E6FBF" stroke-width="1.5"/><path d="M20 6C20 6 28 14 28 22C28 26.4 24.4 30 20 30C15.6 30 12 26.4 12 22C12 14 20 6 20 6Z" fill="#C3B1E1" opacity="0.6"/><path d="M20 12C20 12 25 17 25 22C25 24.8 22.8 27 20 27C17.2 27 15 24.8 15 22C15 17 20 12 20 12Z" fill="#8E6FBF" opacity="0.8"/><circle cx="20" cy="21" r="3" fill="#D4AF37"/></svg>
+        <span class="brand-name">Blissful Yoga Miami</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Paola</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="social-hub.html">Community</a>
+        <a href="members.html" class="active">Members</a>
+        <a href="consultation.html" class="nav-cta">Book Free Consult</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="min-height: 45vh;">
+    <div class="hero-bg">
+      <span class="astro-float" style="top:18%;left:10%">☽</span>
+      <span class="astro-float" style="top:30%;right:12%;animation-delay:2s">✧</span>
+      <span class="astro-float" style="bottom:25%;right:25%;animation-delay:4s;font-size:2.2rem">♀</span>
+    </div>
+    <div class="container hero-content fade-up">
+      <span class="script-intro">Your Sacred Space</span>
+      <h1>Members Area</h1>
+      <p>Exclusive content, direct access to Paola, free video consultations, and a tribe of mindful women supporting your journey.</p>
+    </div>
+  </section>
+
+  <!-- LOGIN / REGISTER GATE -->
+  <section class="section-pad" style="background: var(--color-warm-white);" id="authSection">
+    <div class="container">
+      <div class="tab-nav" id="authTabs">
+        <button class="active" data-tab="login">Sign In</button>
+        <button data-tab="register">Create Account</button>
+        <button data-tab="dashboard" id="dashboardTab" style="display: none;">My Dashboard</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="tab-content active" id="tab-login">
+        <div style="max-width: 480px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <h2 class="section-heading">Welcome Back ☽</h2>
+            <p class="section-sub">Sign in to access your member benefits and connect with Paola.</p>
+          </div>
+
+          <div style="background: #fff; border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-card);">
+            <form id="loginForm" onsubmit="return false;">
+              <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; cursor: pointer;">
+                  <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+                <a href="#" style="font-size: 0.85rem;">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" id="loginBtn">Sign In →</button>
+            </form>
+
+            <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--color-sand);">
+              <p style="font-size: 0.85rem; color: var(--color-text-light);">Don't have an account? <a href="#" id="switchToRegister">Create one here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REGISTER -->
+      <div class="tab-content" id="tab-register">
+        <div style="max-width: 480px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <h2 class="section-heading">Join the Tribe ✨</h2>
+            <p class="section-sub">Create your account to unlock exclusive member benefits.</p>
+          </div>
+
+          <div style="background: #fff; border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-card);">
+            <form id="registerForm" onsubmit="return false;">
+              <div class="form-group">
+                <label for="regName">Full Name</label>
+                <input type="text" id="regName" placeholder="Your full name" required maxlength="100">
+              </div>
+              <div class="form-group">
+                <label for="regEmail">Email Address</label>
+                <input type="email" id="regEmail" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" placeholder="Create a strong password" required minlength="8">
+              </div>
+              <div class="form-group">
+                <label for="regInterest">Primary Interest</label>
+                <select id="regInterest">
+                  <option value="">What brings you here?</option>
+                  <option value="vinyasa">Vinyasa Yoga</option>
+                  <option value="prenatal">Prenatal Yoga</option>
+                  <option value="postnatal">Postnatal Recovery</option>
+                  <option value="hypnobirthing">HypnoBirthing</option>
+                  <option value="doula">Birth Doula</option>
+                  <option value="astrology">Astrology Wellness</option>
+                  <option value="general">General Wellness</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Membership Tier</label>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <label style="display: flex; align-items: flex-start; gap: 10px; padding: 16px; border: 2px solid var(--color-sand); border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition);" class="tier-option">
+                    <input type="radio" name="tier" value="free" checked style="margin-top: 2px;">
+                    <div>
+                      <strong>Free Community</strong>
+                      <div style="font-size: 0.82rem; color: var(--color-text-light);">Access to community feed, free 5-min consultation, newsletter</div>
+                    </div>
+                  </label>
+                  <label style="display: flex; align-items: flex-start; gap: 10px; padding: 16px; border: 2px solid var(--color-gold); border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); background: rgba(212,175,55,0.04);" class="tier-option">
+                    <input type="radio" name="tier" value="monthly" style="margin-top: 2px;">
+                    <div>
+                      <strong>Monthly Unlimited — $149/mo</strong>
+                      <div style="font-size: 0.82rem; color: var(--color-text-light);">Unlimited classes, member content, priority consultations, 10% off private sessions</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" id="registerBtn">Create Account ✨</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEMBER DASHBOARD -->
+      <div class="tab-content" id="tab-dashboard">
+        <div style="max-width: 960px; margin: 0 auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h2 class="section-heading" style="margin: 0;">Welcome Back, <span id="memberName">Beautiful Soul</span> ☽</h2>
+              <p style="color: var(--color-text-light); margin-top: 4px;">Member since March 2026 • <span style="color: var(--color-gold); font-weight: 700;">Monthly Unlimited</span></p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="logoutBtn" type="button">Sign Out</button>
+          </div>
+
+          <!-- Dashboard Grid -->
+          <div class="services-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+            <!-- Quick Action: Book Consultation -->
+            <div class="service-card" style="border-left: 4px solid var(--color-lavender-deep);">
+              <div class="card-icon lavender">📹</div>
+              <h3>Free Video Consult</h3>
+              <p>As a member, you get priority scheduling for free 5-minute video consultations with Paola.</p>
+              <a href="consultation.html" class="card-link">Schedule Now →</a>
+            </div>
+
+            <!-- Quick Action: Upcoming Classes -->
+            <div class="service-card" style="border-left: 4px solid var(--color-sage);">
+              <div class="card-icon sage">🧘‍♀️</div>
+              <h3>Upcoming Classes</h3>
+              <p>Your next class: <strong>Vinyasa Flow</strong> — Tuesday 9:00 AM at Brickell Studio via ClassPass.</p>
+              <a href="services.html" class="card-link">View Schedule →</a>
+            </div>
+
+            <!-- Quick Action: Community -->
+            <div class="service-card" style="border-left: 4px solid var(--color-gold);">
+              <div class="card-icon gold">💬</div>
+              <h3>Community Feed</h3>
+              <p>Connect with other members, share your journey, and support each other.</p>
+              <a href="social-hub.html" class="card-link">Open Community →</a>
+            </div>
+          </div>
+
+          <!-- Member Content Section -->
+          <div style="margin-top: 40px;">
+            <h3 style="margin-bottom: 20px;">✨ Exclusive Member Content</h3>
+            <div class="services-grid">
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-sunrise); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">🌙</span>
+                </div>
+                <h3 style="font-size: 1rem;">March Full Moon Ritual Guide</h3>
+                <p style="font-size: 0.85rem;">PDF guide for the Worm Moon — journaling prompts, yoga sequence, and crystal recommendations.</p>
+                <a href="#" class="card-link">Download PDF →</a>
+              </div>
+
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-earth); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">🧘‍♀️</span>
+                </div>
+                <h3 style="font-size: 1rem;">Prenatal Yoga at Home (Video)</h3>
+                <p style="font-size: 0.85rem;">Full 45-minute prenatal yoga class you can practice at home. Suitable for all trimesters.</p>
+                <a href="#" class="card-link">Watch Now →</a>
+              </div>
+
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-sunrise); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">✨</span>
+                </div>
+                <h3 style="font-size: 1rem;">Birth Affirmation Cards</h3>
+                <p style="font-size: 0.85rem;">Printable set of 20 birth affirmation cards. Perfect for your birth space or daily meditation.</p>
+                <a href="#" class="card-link">Download Cards →</a>
+              </div>
+
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-earth); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">🌿</span>
+                </div>
+                <h3 style="font-size: 1rem;">Herbal Tea Guide for Pregnancy</h3>
+                <p style="font-size: 0.85rem;">Which teas are safe and beneficial during each trimester, plus recipes for calming blends.</p>
+                <a href="#" class="card-link">Read Guide →</a>
+              </div>
+
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-sunrise); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">🎧</span>
+                </div>
+                <h3 style="font-size: 1rem;">HypnoBirthing Audio Track</h3>
+                <p style="font-size: 0.85rem;">20-minute guided deep relaxation audio for birth preparation. Use nightly starting at 32 weeks.</p>
+                <a href="#" class="card-link">Listen Now →</a>
+              </div>
+
+              <div class="service-card fade-up">
+                <div style="background: var(--gradient-earth); border-radius: var(--radius-sm); padding: 20px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 2.5rem;">📖</span>
+                </div>
+                <h3 style="font-size: 1rem;">Postpartum Recovery Handbook</h3>
+                <p style="font-size: 0.85rem;">Comprehensive guide to the fourth trimester — body recovery, emotional wellness, and returning to yoga.</p>
+                <a href="#" class="card-link">Read Handbook →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Settings -->
+          <div style="margin-top: 40px;">
+            <h3 style="margin-bottom: 20px;">⚙️ Account Settings</h3>
+            <div style="background: #fff; border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft);">
+              <div class="services-grid" style="grid-template-columns: 1fr 1fr;">
+                <div>
+                  <h4 style="font-size: 0.9rem; margin-bottom: 12px;">Profile</h4>
+                  <div class="form-group">
+                    <label for="settingsName">Name</label>
+                    <input type="text" id="settingsName" value="Beautiful Soul" maxlength="100">
+                  </div>
+                  <div class="form-group">
+                    <label for="settingsEmail">Email</label>
+                    <input type="email" id="settingsEmail" value="soul@example.com">
+                  </div>
+                </div>
+                <div>
+                  <h4 style="font-size: 0.9rem; margin-bottom: 12px;">Connected Socials</h4>
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border: 1px solid var(--color-sand); border-radius: var(--radius-sm);">
+                      <span>📸 Instagram</span>
+                      <button class="btn btn-sm btn-secondary" type="button">Connect</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border: 1px solid var(--color-sand); border-radius: var(--radius-sm);">
+                      <span>▶️ YouTube</span>
+                      <button class="btn btn-sm btn-secondary" type="button">Connect</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border: 1px solid var(--color-sand); border-radius: var(--radius-sm);">
+                      <span>🎵 TikTok</span>
+                      <button class="btn btn-sm btn-secondary" type="button">Connect</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 20px; text-align: right;">
+                <button class="btn btn-primary btn-sm" type="button" id="saveSettings">Save Settings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP TIERS (for non-members) -->
+  <section class="section-pad" style="background: var(--gradient-sunrise);" id="membershipTiers">
+    <div class="container text-center">
+      <span class="section-label">Membership Benefits</span>
+      <h2 class="section-heading">Choose Your Path</h2>
+      <p class="section-sub">Whether you're just starting or ready to dive deep, there's a membership for you.</p>
+    </div>
+
+    <div class="container programs-grid" style="max-width: 900px;">
+      <!-- Free -->
+      <div class="program-card">
+        <div class="card-header">
+          <h3>Free Community</h3>
+          <div class="price">$0 <span>/ forever</span></div>
+        </div>
+        <div class="card-body">
+          <ul class="features-list">
+            <li><span class="check">✓</span> Community social feed access</li>
+            <li><span class="check">✓</span> One free 5-min video consultation</li>
+            <li><span class="check">✓</span> Weekly newsletter</li>
+            <li><span class="check">✓</span> Access to testimonials & live feeds</li>
+            <li><span class="check">✓</span> Moon ritual calendar</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="document.querySelector('[data-tab=register]').click();">Join Free</button>
+        </div>
+      </div>
+
+      <!-- Monthly -->
+      <div class="program-card featured">
+        <div class="card-header">
+          <h3>Monthly Unlimited</h3>
+          <div class="price">$149 <span>/ month</span></div>
+        </div>
+        <div class="card-body">
+          <ul class="features-list">
+            <li><span class="check">✓</span> Everything in Free</li>
+            <li><span class="check">✓</span> Unlimited yoga classes (ClassPass)</li>
+            <li><span class="check">✓</span> Priority consultation scheduling</li>
+            <li><span class="check">✓</span> Exclusive member content library</li>
+            <li><span class="check">✓</span> Private community group</li>
+            <li><span class="check">✓</span> 10% off private sessions & workshops</li>
+            <li><span class="check">✓</span> Monthly moon ritual guide</li>
+            <li><span class="check">✓</span> Direct messaging with Paola</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="document.querySelector('[data-tab=register]').click();">Start Monthly</button>
+        </div>
+      </div>
+
+      <!-- Annual -->
+      <div class="program-card">
+        <div class="card-header">
+          <h3>Annual Bliss</h3>
+          <div class="price">$1,299 <span>/ year</span></div>
+        </div>
+        <div class="card-body">
+          <ul class="features-list">
+            <li><span class="check">✓</span> Everything in Monthly</li>
+            <li><span class="check">✓</span> Save $489/year (27% off)</li>
+            <li><span class="check">✓</span> Free natal chart reading</li>
+            <li><span class="check">✓</span> Annual birth doula discount (25% off)</li>
+            <li><span class="check">✓</span> VIP workshop access</li>
+            <li><span class="check">✓</span> Exclusive annual retreats invite</li>
+          </ul>
+          <button class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="document.querySelector('[data-tab=register]').click();">Go Annual ✨</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner section-pad">
+    <div class="container text-center">
+      <span class="section-label">Ready to Go Deeper?</span>
+      <h2 class="section-heading">Your Most Blissful Chapter Awaits</h2>
+      <p class="section-sub">Join our growing tribe of mindful women in Miami. Start with a free consultation and discover your path.</p>
+      <a href="consultation.html" class="btn btn-gold">Book Free Consultation ☽</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Blissful Yoga Miami</span>
+        <p>Empowering women through yoga, HypnoBirthing, and holistic wellness.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="footer-links"><h4>Services</h4><ul><li><a href="services.html#vinyasa">Vinyasa</a></li><li><a href="services.html#prenatal">Prenatal</a></li><li><a href="services.html#hypnobirthing">HypnoBirthing</a></li><li><a href="services.html#doula">Doula</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="testimonials.html">Testimonials</a></li><li><a href="social-hub.html">Social Hub</a></li><li><a href="members.html">Members</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="mailto:hello@blissfulyogamiami.com">Email</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Blissful Yoga Miami — Paola Villegas. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/media-config.js"></script>
+  <script src="../js/instagram-feed.js"></script>
+</body>
+</html>

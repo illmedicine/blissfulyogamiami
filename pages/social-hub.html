@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blissful Yoga Miami Social Hub — aggregate comments from Instagram, YouTube, and TikTok with bidirectional messaging.">
+  <title>Community Social Hub — Blissful Yoga Miami</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘‍♀️</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#8E6FBF" stroke-width="1.5"/><path d="M20 6C20 6 28 14 28 22C28 26.4 24.4 30 20 30C15.6 30 12 26.4 12 22C12 14 20 6 20 6Z" fill="#C3B1E1" opacity="0.6"/><path d="M20 12C20 12 25 17 25 22C25 24.8 22.8 27 20 27C17.2 27 15 24.8 15 22C15 17 20 12 20 12Z" fill="#8E6FBF" opacity="0.8"/><circle cx="20" cy="21" r="3" fill="#D4AF37"/></svg>
+        <span class="brand-name">Blissful Yoga Miami</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Paola</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="social-hub.html" class="active">Community</a>
+        <a href="members.html">Members</a>
+        <a href="consultation.html" class="nav-cta">Book Free Consult</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="min-height: 45vh;">
+    <div class="hero-bg">
+      <span class="astro-float" style="top:15%;left:12%">✦</span>
+      <span class="astro-float" style="top:28%;right:10%;animation-delay:3s;font-size:2rem">☽</span>
+    </div>
+    <div class="container hero-content fade-up">
+      <span class="script-intro">All Your Socials, One Place</span>
+      <h1>Community Social Hub</h1>
+      <p>Every comment, every conversation from Instagram, YouTube, and TikTok — aggregated here with the ability to respond across all platforms from a single dashboard.</p>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="marquee-strip" style="padding: 20px 0;">
+    <div class="container" style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-gold);" id="totalFollowers">12.4K</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px;">Total Followers</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-gold);" id="totalComments">847</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px;">Comments This Month</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-gold);" id="responseRate">94%</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px;">Response Rate</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--color-gold);" id="platformCount">3</div>
+        <div style="font-size: 0.78rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px;">Platforms Connected</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HUB -->
+  <section class="social-hub section-pad">
+    <div class="container">
+      <div class="tab-nav" id="hubTabs">
+        <button class="active" data-tab="unified-feed">🌐 Unified Feed</button>
+        <button data-tab="instagram-comments">📸 Instagram</button>
+        <button data-tab="youtube-comments">▶️ YouTube</button>
+        <button data-tab="compose">✍️ Compose Reply</button>
+        <button data-tab="analytics">📊 Engagement</button>
+      </div>
+
+      <!-- UNIFIED FEED -->
+      <div class="tab-content active" id="tab-unified-feed">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <h2 class="section-heading" style="margin: 0;">All Social Comments</h2>
+          <div style="display: flex; gap: 8px;">
+            <select id="feedSort" style="padding: 8px 16px; border: 2px solid var(--color-sand); border-radius: var(--radius-pill); font-size: 0.85rem; font-family: var(--font-body); outline: none; background: #fff;">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="most-liked">Most Liked</option>
+              <option value="unanswered">Unanswered</option>
+            </select>
+            <button class="btn btn-secondary btn-sm" id="refreshFeed">↻ Refresh</button>
+          </div>
+        </div>
+
+        <div class="social-feed" id="unifiedFeed">
+          <!-- Instagram Comment 1 -->
+          <div class="social-comment-card fade-up" data-platform="instagram" data-post-id="ig-001">
+            <span class="platform-badge instagram">📸 Instagram</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">MS</div>
+              <div>
+                <div class="author-name">@maria_sunshine</div>
+                <div class="author-date">2 hours ago • on "Morning Flow" post</div>
+              </div>
+            </div>
+            <p class="comment-text">This class literally changed my life 🙏 I was going through the hardest time postpartum and your morning flows gave me a reason to wake up with hope. Thank you Paola!! 💛</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to @maria_sunshine..." maxlength="500">
+              <button class="reply-btn" data-platform="instagram" data-id="ig-001">Reply</button>
+            </div>
+          </div>
+
+          <!-- YouTube Comment -->
+          <div class="social-comment-card fade-up" data-platform="youtube" data-post-id="yt-001">
+            <span class="platform-badge youtube">▶️ YouTube</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">DT</div>
+              <div>
+                <div class="author-name">Daniel Torres</div>
+                <div class="author-date">5 hours ago • on "Astrology & Yoga Alignment"</div>
+              </div>
+            </div>
+            <p class="comment-text">Just discovered this channel and I'm blown away. The way you combine astrology with yoga practice is something I've never seen before. Subscribed immediately! Can you do a session on Scorpio placements? ♏️</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to Daniel Torres..." maxlength="500">
+              <button class="reply-btn" data-platform="youtube" data-id="yt-001">Reply</button>
+            </div>
+          </div>
+
+          <!-- Instagram Comment 2 -->
+          <div class="social-comment-card fade-up" data-platform="instagram" data-post-id="ig-002">
+            <span class="platform-badge instagram">📸 Instagram</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">JB</div>
+              <div>
+                <div class="author-name">@jessica.bloom</div>
+                <div class="author-date">8 hours ago • on "Prenatal Love" reel</div>
+              </div>
+            </div>
+            <p class="comment-text">35 weeks today and your prenatal yoga class yesterday was exactly what I needed. The hip openers 😍 My baby was dancing the whole time! See you next week 🤰✨</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to @jessica.bloom..." maxlength="500">
+              <button class="reply-btn" data-platform="instagram" data-id="ig-002">Reply</button>
+            </div>
+          </div>
+
+          <!-- YouTube Comment 2 -->
+          <div class="social-comment-card fade-up" data-platform="youtube" data-post-id="yt-002">
+            <span class="platform-badge youtube">▶️ YouTube</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">AK</div>
+              <div>
+                <div class="author-name">Ashley K.</div>
+                <div class="author-date">1 day ago • on "Postnatal Recovery Guide"</div>
+              </div>
+            </div>
+            <p class="comment-text">I've watched this video at least 10 times since having my baby 2 months ago. The diastasis recti exercises have been a game changer. Please do more postnatal content! 🙌</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to Ashley K..." maxlength="500">
+              <button class="reply-btn" data-platform="youtube" data-id="yt-002">Reply</button>
+            </div>
+          </div>
+
+          <!-- Instagram Comment 3 -->
+          <div class="social-comment-card fade-up" data-platform="instagram" data-post-id="ig-003">
+            <span class="platform-badge instagram">📸 Instagram</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">SL</div>
+              <div>
+                <div class="author-name">@sophia.luna</div>
+                <div class="author-date">1 day ago • on "Beach Yoga" post</div>
+              </div>
+            </div>
+            <p class="comment-text">Found you through ClassPass and now I literally rearrange my whole schedule to make your Tuesday and Thursday classes. You've ruined all other yoga teachers for me 😂🧘‍♀️💕</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to @sophia.luna..." maxlength="500">
+              <button class="reply-btn" data-platform="instagram" data-id="ig-003">Reply</button>
+            </div>
+          </div>
+
+          <!-- Instagram Comment 4 -->
+          <div class="social-comment-card fade-up" data-platform="instagram" data-post-id="ig-004">
+            <span class="platform-badge instagram">📸 Instagram</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">NW</div>
+              <div>
+                <div class="author-name">@nina.wildflow</div>
+                <div class="author-date">2 days ago • on "Full Moon Ritual" story</div>
+              </div>
+            </div>
+            <p class="comment-text">Last night's full moon circle was absolutely transcendent 🌕 I left feeling lighter than I have in months. The group energy was unbelievable. When's the next one?!</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to @nina.wildflow..." maxlength="500">
+              <button class="reply-btn" data-platform="instagram" data-id="ig-004">Reply</button>
+            </div>
+          </div>
+
+          <!-- YouTube Comment 3 -->
+          <div class="social-comment-card fade-up" data-platform="youtube" data-post-id="yt-003">
+            <span class="platform-badge youtube">▶️ YouTube</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">CV</div>
+              <div>
+                <div class="author-name">Carmen Villareal</div>
+                <div class="author-date">2 days ago • on "What is a Birth Doula?"</div>
+              </div>
+            </div>
+            <p class="comment-text">Paola was my doula for both my births and I cannot recommend her enough. This video perfectly captures what makes her so special — she holds space like no one else. Every expecting mom needs to watch this! 💜</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to Carmen Villareal..." maxlength="500">
+              <button class="reply-btn" data-platform="youtube" data-id="yt-003">Reply</button>
+            </div>
+          </div>
+
+          <!-- Instagram Comment 5 -->
+          <div class="social-comment-card fade-up" data-platform="instagram" data-post-id="ig-005">
+            <span class="platform-badge instagram">📸 Instagram</span>
+            <div class="comment-author">
+              <div class="comment-avatar initials-avatar">LB</div>
+              <div>
+                <div class="author-name">@leah.bloom</div>
+                <div class="author-date">3 days ago • on "HypnoBirthing Workshop" post</div>
+              </div>
+            </div>
+            <p class="comment-text">Can't believe how much I learned in just one weekend! My husband and I are so much less anxious now. The breathing techniques are already helping me sleep better at 32 weeks. 🌙💤</p>
+            <div class="reply-box">
+              <input type="text" placeholder="Reply to @leah.bloom..." maxlength="500">
+              <button class="reply-btn" data-platform="instagram" data-id="ig-005">Reply</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 32px;">
+          <button class="btn btn-secondary" id="loadMoreComments">Load More Comments ↓</button>
+        </div>
+      </div>
+
+      <!-- INSTAGRAM COMMENTS TAB -->
+      <div class="tab-content" id="tab-instagram-comments">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <h2 class="section-heading" style="margin: 0;">📸 Instagram Comments</h2>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span style="font-size: 0.85rem; color: var(--color-text-light);">Showing comments from @blissfulyogamiami</span>
+          </div>
+        </div>
+        <div class="social-feed" id="instagramFeed">
+          <!-- Populated by JS filtering -->
+          <p class="text-center" style="grid-column: 1/-1; color: var(--color-text-light); padding: 40px;">Instagram comments will be loaded from the unified feed. Switch to this tab to filter Instagram-only conversations.</p>
+        </div>
+      </div>
+
+      <!-- YOUTUBE COMMENTS TAB -->
+      <div class="tab-content" id="tab-youtube-comments">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <h2 class="section-heading" style="margin: 0;">▶️ YouTube Comments</h2>
+        </div>
+        <div class="social-feed" id="youtubeFeed">
+          <p class="text-center" style="grid-column: 1/-1; color: var(--color-text-light); padding: 40px;">YouTube comments will be loaded from the unified feed. Switch to this tab to filter YouTube-only conversations.</p>
+        </div>
+      </div>
+
+      <!-- COMPOSE TAB -->
+      <div class="tab-content" id="tab-compose">
+        <div style="max-width: 700px; margin: 0 auto;">
+          <h2 class="section-heading text-center">Compose & Send Reply</h2>
+          <p class="section-sub text-center">Post a reply back to any platform directly from this dashboard. Select the platform and enter your message.</p>
+
+          <div style="background: #fff; border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-card);">
+            <div class="form-group">
+              <label for="composePlatform">Platform</label>
+              <select id="composePlatform">
+                <option value="">Select platform...</option>
+                <option value="instagram">📸 Instagram</option>
+                <option value="youtube">▶️ YouTube</option>
+                <option value="tiktok">🎵 TikTok</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="composeReplyTo">Replying to</label>
+              <input type="text" id="composeReplyTo" placeholder="@username or comment link" maxlength="200">
+            </div>
+
+            <div class="form-group">
+              <label for="composeMessage">Your Reply</label>
+              <textarea id="composeMessage" placeholder="Type your thoughtful response here... Remember: every reply represents the Blissful Yoga Miami brand 🙏" maxlength="2000"></textarea>
+              <div style="display: flex; justify-content: space-between; margin-top: 6px;">
+                <span style="font-size: 0.78rem; color: var(--color-text-light);">Max 2,000 characters</span>
+                <span style="font-size: 0.78rem; color: var(--color-text-light);" id="charCount">0 / 2,000</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Quick Responses</label>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <button class="chip quick-reply" data-text="Thank you so much for your kind words! 🙏 You are such a beautiful soul. Namaste 💜">Thank you 🙏</button>
+                <button class="chip quick-reply" data-text="So happy this resonated with you! Your journey is unique and beautiful. See you on the mat! 🧘‍♀️✨">See you on mat ✨</button>
+                <button class="chip quick-reply" data-text="Sending you so much love and light! DM me if you'd like to chat more about this. 💛☽">Love & light 💛</button>
+                <button class="chip quick-reply" data-text="Book a free 5-minute consultation with me at blissfulyogamiami.com/consultation to discuss this further! 🌙">Book consult 🌙</button>
+                <button class="chip quick-reply" data-text="Next class/session info is on our website! blissfulyogamiami.com/services — can't wait to see you! 🌿">Class info 🌿</button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+              <button class="btn btn-secondary btn-sm" id="saveDraft" type="button">Save Draft</button>
+              <button class="btn btn-primary btn-sm" id="sendReply" type="button">Send Reply →</button>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding: 20px; background: rgba(168,181,160,0.1); border-radius: var(--radius-sm); border: 1px solid rgba(168,181,160,0.3);">
+            <p style="font-size: 0.85rem; color: var(--color-text);">
+              <strong>🔗 How it works:</strong> This compose interface connects to the Instagram Graph API and YouTube Data API to post replies on your behalf. Ensure your social accounts are connected in the Members settings page. Replies posted here will appear directly on the respective platform.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANALYTICS TAB -->
+      <div class="tab-content" id="tab-analytics">
+        <div class="text-center" style="margin-bottom: 40px;">
+          <h2 class="section-heading">Engagement Overview</h2>
+          <p class="section-sub">Track community engagement across all connected social media platforms.</p>
+        </div>
+
+        <div class="services-grid" style="max-width: 960px; margin: 0 auto;">
+          <!-- Instagram Stats -->
+          <div class="service-card fade-up" style="text-align: center;">
+            <div class="card-icon rose" style="margin: 0 auto 16px; font-size: 1.4rem;">📸</div>
+            <h3>Instagram</h3>
+            <div style="font-family: var(--font-display); font-size: 2rem; color: var(--color-twilight); margin: 8px 0;">8.2K</div>
+            <p style="font-size: 0.82rem; color: var(--color-text-light);">Followers</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-sand);">
+              <div>
+                <div style="font-weight: 700;">512</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Comments/mo</div>
+              </div>
+              <div>
+                <div style="font-weight: 700;">4.8%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Engagement</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- YouTube Stats -->
+          <div class="service-card fade-up" style="text-align: center;">
+            <div class="card-icon sage" style="margin: 0 auto 16px; font-size: 1.4rem;">▶️</div>
+            <h3>YouTube</h3>
+            <div style="font-family: var(--font-display); font-size: 2rem; color: var(--color-twilight); margin: 8px 0;">3.1K</div>
+            <p style="font-size: 0.82rem; color: var(--color-text-light);">Subscribers</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-sand);">
+              <div>
+                <div style="font-weight: 700;">278</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Comments/mo</div>
+              </div>
+              <div>
+                <div style="font-weight: 700;">6.2%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Engagement</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TikTok Stats -->
+          <div class="service-card fade-up" style="text-align: center;">
+            <div class="card-icon lavender" style="margin: 0 auto 16px; font-size: 1.4rem;">🎵</div>
+            <h3>TikTok</h3>
+            <div style="font-family: var(--font-display); font-size: 2rem; color: var(--color-twilight); margin: 8px 0;">1.1K</div>
+            <p style="font-size: 0.82rem; color: var(--color-text-light);">Followers</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-sand);">
+              <div>
+                <div style="font-weight: 700;">57</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Comments/mo</div>
+              </div>
+              <div>
+                <div style="font-weight: 700;">8.1%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-light);">Engagement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engagement chart placeholder -->
+        <div style="max-width: 800px; margin: 40px auto 0;">
+          <div style="background: #fff; border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft);">
+            <h3 style="margin-bottom: 20px;">Weekly Engagement Trend</h3>
+            <div id="engagementChart" style="display: flex; align-items: flex-end; gap: 8px; height: 200px; padding: 20px 0; border-bottom: 2px solid var(--color-sand);">
+              <!-- Chart bars generated by JS -->
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender); border-radius: 4px 4px 0 0; height: 60%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Mon</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender); border-radius: 4px 4px 0 0; height: 75%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Tue</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender-deep); border-radius: 4px 4px 0 0; height: 100%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Wed</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender); border-radius: 4px 4px 0 0; height: 55%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Thu</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender); border-radius: 4px 4px 0 0; height: 85%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Fri</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender-deep); border-radius: 4px 4px 0 0; height: 95%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Sat</span>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="width: 100%; background: var(--color-lavender); border-radius: 4px 4px 0 0; height: 70%;"></div>
+                <span style="font-size: 0.72rem; color: var(--color-text-light);">Sun</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner section-pad">
+    <div class="container text-center">
+      <span class="section-label">Join the Conversation</span>
+      <h2 class="section-heading">Follow Blissful Yoga Miami Everywhere</h2>
+      <p class="section-sub">Connect with us on your favorite platform and become part of our growing community.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener" class="btn btn-primary">📸 Instagram</a>
+        <a href="#" class="btn btn-secondary">▶️ YouTube</a>
+        <a href="#" class="btn btn-secondary">🎵 TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Blissful Yoga Miami</span>
+        <p>Empowering women through yoga, HypnoBirthing, and holistic wellness.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="footer-links"><h4>Services</h4><ul><li><a href="services.html#vinyasa">Vinyasa</a></li><li><a href="services.html#prenatal">Prenatal</a></li><li><a href="services.html#hypnobirthing">HypnoBirthing</a></li><li><a href="services.html#doula">Doula</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="testimonials.html">Testimonials</a></li><li><a href="social-hub.html">Social Hub</a></li><li><a href="members.html">Members</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="mailto:hello@blissfulyogamiami.com">Email</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Blissful Yoga Miami — Paola Villegas. All rights reserved.</p></div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/media-config.js"></script>
+  <script src="../js/instagram-feed.js"></script>
+  <script src="../js/social-hub.js"></script>
+</body>
+</html>

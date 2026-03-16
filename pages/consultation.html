@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a free 5-minute video consultation with Paola Villegas at Blissful Yoga Miami. Schedule through Calendly and connect via video.">
+  <title>Free Consultation — Blissful Yoga Miami</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘‍♀️</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#8E6FBF" stroke-width="1.5"/><path d="M20 6C20 6 28 14 28 22C28 26.4 24.4 30 20 30C15.6 30 12 26.4 12 22C12 14 20 6 20 6Z" fill="#C3B1E1" opacity="0.6"/><path d="M20 12C20 12 25 17 25 22C25 24.8 22.8 27 20 27C17.2 27 15 24.8 15 22C15 17 20 12 20 12Z" fill="#8E6FBF" opacity="0.8"/><circle cx="20" cy="21" r="3" fill="#D4AF37"/></svg>
+        <span class="brand-name">Blissful Yoga Miami</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About Paola</a>
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="social-hub.html">Community</a>
+        <a href="members.html">Members</a>
+        <a href="consultation.html" class="nav-cta active">Book Free Consult</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="min-height: 45vh;">
+    <div class="hero-bg">
+      <span class="astro-float" style="top:20%;left:10%">☽</span>
+      <span class="astro-float" style="top:35%;right:12%;animation-delay:2s">✦</span>
+    </div>
+    <div class="container hero-content fade-up">
+      <span class="script-intro">Your Journey Starts Here</span>
+      <h1>Free Video Consultation</h1>
+      <p>Schedule a complimentary 5-minute video call with Paola. She'll listen, assess, and guide you toward the perfect services for your unique path.</p>
+    </div>
+  </section>
+
+  <!-- TAB SYSTEM: Schedule / Video Room -->
+  <section class="section-pad" style="background: var(--color-warm-white);">
+    <div class="container">
+      <div class="tab-nav" id="consultTabs">
+        <button class="active" data-tab="schedule">📅 Schedule Consultation</button>
+        <button data-tab="video-room">📹 Join Video Room</button>
+        <button data-tab="how-it-works">ℹ️ How It Works</button>
+      </div>
+
+      <!-- SCHEDULE TAB -->
+      <div class="tab-content active" id="tab-schedule">
+        <div class="text-center" style="margin-bottom: 32px;">
+          <h2 class="section-heading">Pick a Time That Works for You</h2>
+          <p class="section-sub">Select an available slot below. Paola will review and confirm based on her schedule. You'll receive a confirmation email with your video room link.</p>
+        </div>
+
+        <!-- Calendly Embed -->
+        <div class="calendly-embed" id="calendlyWidget">
+          <div style="padding: 60px; text-align: center;">
+            <p style="color: var(--color-text-light); margin-bottom: 20px;">Loading Calendly scheduler...</p>
+            <p style="font-size: 0.85rem; color: var(--color-text-light);">
+              If the scheduler doesn't load, you can
+              <a href="https://calendly.com" target="_blank" rel="noopener">book directly on Calendly</a>.
+            </p>
+            <!-- The Calendly inline widget will be injected here -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/blissfulyogamiami/free-consultation" style="min-width:320px;height:630px;"></div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 32px;">
+          <p style="font-size: 0.88rem; color: var(--color-text-light);">
+            ✦ After Paola confirms your appointment, you'll receive an email with a link to the video consultation room above.
+          </p>
+        </div>
+      </div>
+
+      <!-- VIDEO ROOM TAB -->
+      <div class="tab-content" id="tab-video-room">
+        <div id="preJoinScreen">
+          <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 class="section-heading">Video Consultation Room</h2>
+            <p class="section-sub">Enter your consultation code and join your video session with Paola. Make sure your camera and microphone are ready.</p>
+
+            <!-- Pre-join form -->
+            <div style="background: #fff; border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-card); text-align: left;">
+              <div class="form-group">
+                <label for="consultCode">Consultation Code</label>
+                <input type="text" id="consultCode" placeholder="Enter code from your confirmation email" maxlength="20">
+              </div>
+              <div class="form-group">
+                <label for="participantName">Your Name</label>
+                <input type="text" id="participantName" placeholder="Enter your full name" maxlength="100">
+              </div>
+
+              <!-- Camera preview -->
+              <div style="margin: 20px 0;">
+                <label style="font-weight: 600; font-size: 0.88rem; display: block; margin-bottom: 8px;">Camera Preview</label>
+                <div style="background: #1a1525; border-radius: var(--radius-sm); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                  <video id="localPreview" autoplay muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+                  <div id="previewPlaceholder" style="color: rgba(255,255,255,0.4); text-align: center;">
+                    <p style="font-size: 2rem;">📷</p>
+                    <p style="font-size: 0.85rem;">Click "Test Camera" to preview</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button class="btn btn-secondary btn-sm" id="testCameraBtn" type="button">🎥 Test Camera</button>
+                <button class="btn btn-secondary btn-sm" id="testMicBtn" type="button">🎤 Test Microphone</button>
+              </div>
+
+              <div id="micLevel" style="margin-top: 12px; display: none;">
+                <label style="font-size: 0.82rem; color: var(--color-text-light);">Microphone Level:</label>
+                <div style="background: var(--color-sand); border-radius: 4px; height: 8px; overflow: hidden;">
+                  <div id="micBar" style="height: 100%; background: var(--color-sage-dark); width: 0%; transition: width 0.1s;"></div>
+                </div>
+              </div>
+
+              <div style="margin-top: 28px;">
+                <button class="btn btn-primary" id="joinRoomBtn" style="width: 100%; justify-content: center;" type="button">Join Consultation Room →</button>
+              </div>
+            </div>
+
+            <!-- Consent notice -->
+            <div style="margin-top: 24px; padding: 20px; background: rgba(212,175,55,0.08); border-radius: var(--radius-sm); border: 1px solid rgba(212,175,55,0.2);">
+              <p style="font-size: 0.85rem; color: var(--color-text);">
+                <strong>📹 Recording Notice:</strong> With mutual consent, consultations may be recorded and shared on the Blissful Yoga Miami website under the "Live Consultations & Testimonials" section. You'll be asked for consent before any recording begins.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Video Room (hidden by default) -->
+        <div id="activeVideoRoom" style="display: none;">
+          <div class="video-room" style="background: transparent; min-height: auto; padding-top: 0;">
+            <div class="consult-room-header">
+              <h2 style="color: var(--color-midnight);">☽ Consultation with Paola</h2>
+              <div>
+                <span class="recording-badge" id="recordingBadge" style="display: none;">
+                  <span class="pulse-dot"></span>
+                  Recording
+                </span>
+                <span id="callTimer" style="font-size: 0.88rem; color: var(--color-text-light); margin-left: 16px;">00:00</span>
+              </div>
+            </div>
+
+            <div class="video-container" style="height: 65vh; background: var(--color-midnight); border-radius: var(--radius-md); overflow: hidden;">
+              <!-- Main video (remote) -->
+              <div class="video-main">
+                <div class="video-placeholder" id="remotePlaceholder">
+                  <svg viewBox="0 0 24 24" fill="currentColor" style="width: 64px; height: 64px; opacity: 0.3;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  <p>Waiting for Paola to join...</p>
+                </div>
+                <video id="remoteVideo" autoplay playsinline style="display: none; width: 100%; height: 100%; object-fit: cover;"></video>
+
+                <!-- Self video (PiP) -->
+                <div class="video-self">
+                  <video id="selfVideo" autoplay muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                </div>
+
+                <!-- Controls -->
+                <div class="video-controls">
+                  <button id="toggleMic" class="active" title="Toggle Microphone">🎤</button>
+                  <button id="toggleCamera" class="active" title="Toggle Camera">📷</button>
+                  <button id="toggleScreen" title="Share Screen">🖥</button>
+                  <button id="endCall" class="end-call" title="End Call">📞</button>
+                </div>
+              </div>
+
+              <!-- Sidebar -->
+              <div class="video-sidebar">
+                <div class="sidebar-header">
+                  <h3 style="color: #fff;">Session Info</h3>
+                </div>
+                <div class="sidebar-tabs">
+                  <button class="active" data-sidebar="chat">Chat</button>
+                  <button data-sidebar="notes">Notes</button>
+                  <button data-sidebar="info">Info</button>
+                </div>
+                <div class="sidebar-body" id="sidebarBody">
+                  <!-- Chat tab content -->
+                  <div id="sidebar-chat" class="sidebar-panel">
+                    <div id="sessionChat" style="flex: 1; overflow-y: auto; margin-bottom: 12px;">
+                      <p style="color: rgba(255,255,255,0.4); font-size: 0.85rem; text-align: center; padding: 20px;">Messages will appear here during your session.</p>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                      <input type="text" id="sessionChatInput" placeholder="Type a message..." style="flex: 1; padding: 10px; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); color: #fff; font-size: 0.85rem; outline: none;">
+                      <button id="sessionChatSend" style="padding: 10px 16px; border: none; border-radius: var(--radius-sm); background: var(--color-lavender-deep); color: #fff; font-weight: 600; cursor: pointer;">Send</button>
+                    </div>
+                  </div>
+
+                  <!-- Notes tab content -->
+                  <div id="sidebar-notes" class="sidebar-panel" style="display: none;">
+                    <textarea id="sessionNotes" placeholder="Take notes during your session..." style="width: 100%; height: calc(100% - 20px); background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 12px; font-family: var(--font-body); font-size: 0.88rem; resize: none; outline: none;"></textarea>
+                  </div>
+
+                  <!-- Info tab content -->
+                  <div id="sidebar-info" class="sidebar-panel" style="display: none; color: rgba(255,255,255,0.7); font-size: 0.88rem;">
+                    <div style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                      <strong style="color: #fff;">Session Type:</strong><br>
+                      Free 5-Minute Consultation
+                    </div>
+                    <div style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                      <strong style="color: #fff;">Host:</strong><br>
+                      Paola Villegas
+                    </div>
+                    <div style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                      <strong style="color: #fff;">Recording:</strong><br>
+                      <span id="recordingStatus">Not recording</span>
+                    </div>
+                    <div style="padding: 12px 0;">
+                      <strong style="color: #fff;">Recommended Services:</strong><br>
+                      <span id="recommendedServices">Will be discussed during session</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS TAB -->
+      <div class="tab-content" id="tab-how-it-works">
+        <div class="text-center" style="margin-bottom: 40px;">
+          <h2 class="section-heading">How Free Consultations Work</h2>
+          <p class="section-sub">A simple 3-step process to get personalized guidance from Paola.</p>
+        </div>
+
+        <div class="consult-grid" style="max-width: 960px; margin: 0 auto;">
+          <div class="consult-step fade-up" style="background: #fff; border: 1px solid var(--color-sand);">
+            <div class="step-num" style="background: var(--gradient-spirit); color: #fff;">1</div>
+            <h3 style="color: var(--color-midnight);">Schedule via Calendly</h3>
+            <p style="color: var(--color-text-light);">Browse Paola's availability and pick a 5-minute slot that works for you. You'll receive a confirmation email with your consultation code.</p>
+          </div>
+          <div class="consult-step fade-up" style="background: #fff; border: 1px solid var(--color-sand);">
+            <div class="step-num" style="background: var(--gradient-spirit); color: #fff;">2</div>
+            <h3 style="color: var(--color-midnight);">Join the Video Room</h3>
+            <p style="color: var(--color-text-light);">At your appointment time, enter your consultation code and join the video room right here on the site. Test your camera & mic beforehand.</p>
+          </div>
+          <div class="consult-step fade-up" style="background: #fff; border: 1px solid var(--color-sand);">
+            <div class="step-num" style="background: var(--gradient-spirit); color: #fff;">3</div>
+            <h3 style="color: var(--color-midnight);">Get Personalized Guidance</h3>
+            <p style="color: var(--color-text-light);">Paola will listen to your goals and recommend the best services for you. With consent, the session may be recorded for the testimonials section.</p>
+          </div>
+        </div>
+
+        <div style="max-width: 700px; margin: 40px auto 0;">
+          <div style="background: #fff; border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow-soft);">
+            <h3 style="margin-bottom: 16px;">Frequently Asked Questions</h3>
+
+            <details style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--color-sand);">
+              <summary style="font-weight: 600; cursor: pointer; padding: 8px 0;">Is the consultation really free?</summary>
+              <p style="padding: 8px 0; color: var(--color-text-light); font-size: 0.92rem;">Yes! The initial 5-minute video consultation is completely free with no obligation. It's Paola's way of understanding your needs before recommending services.</p>
+            </details>
+
+            <details style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--color-sand);">
+              <summary style="font-weight: 600; cursor: pointer; padding: 8px 0;">Will my consultation be recorded?</summary>
+              <p style="padding: 8px 0; color: var(--color-text-light); font-size: 0.92rem;">Only with your explicit consent. Before recording begins, you'll be asked via a consent prompt. Recorded sessions may be shared on the site's testimonials section. You can decline recording and the consultation continues normally.</p>
+            </details>
+
+            <details style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--color-sand);">
+              <summary style="font-weight: 600; cursor: pointer; padding: 8px 0;">What do I need for the video call?</summary>
+              <p style="padding: 8px 0; color: var(--color-text-light); font-size: 0.92rem;">A device with a camera and microphone (laptop, tablet, or phone). A stable internet connection. We recommend using Chrome or Safari for the best experience.</p>
+            </details>
+
+            <details style="margin-bottom: 0;">
+              <summary style="font-weight: 600; cursor: pointer; padding: 8px 0;">How quickly will Paola respond to my booking?</summary>
+              <p style="padding: 8px 0; color: var(--color-text-light); font-size: 0.92rem;">Paola reviews appointment requests within 24 hours and accepts based on her schedule and availability. You'll receive a confirmation or alternative time suggestion via email.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECORDING CONSENT MODAL -->
+  <div class="modal-overlay" id="consentModal">
+    <div class="modal-box">
+      <h3>📹 Recording Consent</h3>
+      <p>Paola would like to record this consultation. The recording may be shared on the Blissful Yoga Miami website under the "Live Consultations & Testimonials" section to help inspire other women on their wellness journey.</p>
+      <p style="font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 8px;">You can decline and the consultation will continue without recording.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-sm" id="consentAccept">I Consent to Recording</button>
+        <button class="btn btn-secondary btn-sm" id="consentDecline">No Thanks</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-banner section-pad">
+    <div class="container text-center">
+      <span class="section-label">Ready to Begin?</span>
+      <h2 class="section-heading">Your Transformation Awaits</h2>
+      <p class="section-sub">Schedule your free consultation today and take the first step toward a more blissful, empowered you.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="services.html" class="btn btn-secondary">View All Services</a>
+        <a href="members.html" class="btn btn-gold">Become a Member ✨</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Blissful Yoga Miami</span>
+        <p>Empowering women through yoga, HypnoBirthing, and holistic wellness. Led by Paola Villegas in Miami.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="footer-links"><h4>Services</h4><ul><li><a href="services.html#vinyasa">Vinyasa</a></li><li><a href="services.html#prenatal">Prenatal</a></li><li><a href="services.html#hypnobirthing">HypnoBirthing</a></li><li><a href="services.html#doula">Doula</a></li></ul></div>
+      <div class="footer-links"><h4>Community</h4><ul><li><a href="testimonials.html">Testimonials</a></li><li><a href="social-hub.html">Social Hub</a></li><li><a href="members.html">Members</a></li></ul></div>
+      <div class="footer-links"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/blissfulyogamiami" target="_blank" rel="noopener">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="mailto:hello@blissfulyogamiami.com">Email</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Blissful Yoga Miami — Paola Villegas. All rights reserved.</p></div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/media-config.js"></script>
+  <script src="../js/instagram-feed.js"></script>
+  <script src="../js/consultation.js"></script>
+</body>
+</html>
