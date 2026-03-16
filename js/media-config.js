@@ -90,6 +90,43 @@ BYM.config = {
       initials: 'LK',
     },
   ],
+
+  /* ---------- Zoom Meeting SDK Configuration ---------- */
+  zoom: {
+    /*  Zoom Meeting SDK Key (Client ID) from Zoom Marketplace.
+        Create a "Meeting SDK" app at https://marketplace.zoom.us/
+        This is a public key — safe to expose in client code. */
+    sdkKey: '',
+
+    /*  Paola's Personal Meeting ID (PMI) — her persistent Zoom room.
+        Users will join this meeting for consultations.
+        Find it in Zoom > Profile > Personal Meeting ID. */
+    meetingNumber: '',
+
+    /*  Meeting passcode (if required). */
+    meetingPassword: '',
+
+    /*  Signature endpoint URL — a serverless function that generates
+        the meeting SDK signature. Set up on Vercel/Netlify using:
+        https://github.com/zoom/meetingsdk-auth-endpoint-sample
+        Example: 'https://your-app.vercel.app/api/signature' */
+    signatureEndpoint: '',
+
+    /*  Paola's display name in the meeting. */
+    hostName: 'Paola — Blissful Yoga Miami',
+
+    /*  Join link fallback — if SDK isn't configured, this URL
+        opens Zoom's web client directly. Format:
+        https://zoom.us/j/MEETING_ID?pwd=PASSWORD */
+    joinUrl: '',
+  },
+
+  /* ---------- Hero Collage Images ---------- */
+  heroCollage: [
+    'https://assets.cdn.filesafe.space/UIQ0VKqOtTyVeSA1fPGU/media/68a62351280b9e36d0b27ebd.jpeg',
+    'https://assets.cdn.filesafe.space/UIQ0VKqOtTyVeSA1fPGU/media/68a61ddd280b9e2c79b187ab.jpeg',
+    'https://assets.cdn.filesafe.space/UIQ0VKqOtTyVeSA1fPGU/media/68a62031a6c93d668e146bcb.jpeg',
+  ],
 };
 
 window.BYM = BYM;

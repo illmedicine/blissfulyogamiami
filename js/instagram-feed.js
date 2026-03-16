@@ -102,6 +102,9 @@
       });
     }
 
+    /* --- HERO COLLAGE on index.html --- */
+    populateHeroCollage(posts);
+
     /* --- GRID FEED on testimonials.html, social-hub.html --- */
     document.querySelectorAll('[data-ig-feed]').forEach(function (container) {
       var count = parseInt(container.getAttribute('data-ig-count'), 10) || 6;
@@ -250,6 +253,34 @@
   function truncate(str, len) {
     if (!str) return '';
     return str.length > len ? str.substring(0, len) + '…' : str;
+  }
+
+  /* ====================================================
+     6) HERO COLLAGE — Replace placeholder images with IG posts
+     ==================================================== */
+  function populateHeroCollage(posts) {
+    var track = document.getElementById('heroCollageTrack');
+    if (!track) return;
+
+    // Collect image URLs from Instagram posts (prefer high-engagement)
+    var imgUrls = [];
+    (posts || []).forEach(function (post) {
+      var url = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      if (url) imgUrls.push(url);
+    });
+
+    // Need at least 6 images — pad with existing CDN images
+    var fallbacks = (config.heroCollage || []);
+    while (imgUrls.length < 18) {
+      imgUrls = imgUrls.concat(imgUrls.length > 0 ? imgUrls : fallbacks);
+    }
+    imgUrls = imgUrls.slice(0, 18);
+
+    // Replace placeholder images in all 3 rows
+    var allImgs = track.querySelectorAll('.collage-img');
+    for (var i = 0; i < allImgs.length && i < imgUrls.length; i++) {
+      allImgs[i].src = imgUrls[i % imgUrls.length];
+    }
   }
 
   /* ====================================================

@@ -49,6 +49,7 @@
     <div class="container">
       <div class="tab-nav" id="consultTabs">
         <button class="active" data-tab="schedule">📅 Schedule Consultation</button>
+        <button data-tab="live-consultation">🎥 Live Consultation</button>
         <button data-tab="video-room">📹 Join Video Room</button>
         <button data-tab="how-it-works">ℹ️ How It Works</button>
       </div>
@@ -77,6 +78,98 @@
           <p style="font-size: 0.88rem; color: var(--color-text-light);">
             ✦ After Paola confirms your appointment, you'll receive an email with a link to the video consultation room above.
           </p>
+        </div>
+      </div>
+
+      <!-- LIVE CONSULTATION (ZOOM) TAB -->
+      <div class="tab-content" id="tab-live-consultation">
+        <div class="text-center" style="margin-bottom: 32px;">
+          <h2 class="section-heading">🎥 Live Zoom Consultation</h2>
+          <p class="section-sub">Request a free 5-minute face-to-face consultation with Paola — video and audio run directly from this page, no need to open Zoom separately.</p>
+        </div>
+
+        <!-- Pre-join Zoom UI -->
+        <div id="zoomPreJoin">
+          <div style="max-width: 640px; margin: 0 auto;">
+            <div style="background: #fff; border-radius: var(--radius-md); padding: 40px; box-shadow: var(--shadow-card);">
+              <div style="text-align: center; margin-bottom: 28px;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-lavender), var(--color-twilight)); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 16px;">🎥</div>
+                <h3 style="margin-bottom: 8px;">Join Paola's Consultation Room</h3>
+                <p style="font-size: 0.88rem; color: var(--color-text-light);">Enter your details below and click the button to start your live video consultation.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="zoomDisplayName">Your Name</label>
+                <input type="text" id="zoomDisplayName" placeholder="Enter your full name" maxlength="100" required>
+              </div>
+
+              <div class="form-group">
+                <label for="zoomMeetingId">Meeting ID <span style="font-weight:400; color:var(--color-text-light);">(from your confirmation email)</span></label>
+                <input type="text" id="zoomMeetingId" placeholder="e.g. 123 456 7890" maxlength="20">
+              </div>
+
+              <div class="form-group">
+                <label for="zoomPasscode">Passcode <span style="font-weight:400; color:var(--color-text-light);">(if required)</span></label>
+                <input type="text" id="zoomPasscode" placeholder="Meeting passcode" maxlength="20">
+              </div>
+
+              <!-- Camera preview -->
+              <div style="margin: 20px 0;">
+                <label style="font-weight: 600; font-size: 0.88rem; display: block; margin-bottom: 8px;">Camera Preview</label>
+                <div style="background: #1a1525; border-radius: var(--radius-sm); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                  <video id="zoomCameraPreview" autoplay muted playsinline style="width: 100%; height: 100%; object-fit: cover; display: none;"></video>
+                  <div id="zoomPreviewPlaceholder" style="color: rgba(255,255,255,0.4); text-align: center;">
+                    <p style="font-size: 2rem;">📷</p>
+                    <p style="font-size: 0.85rem;">Click "Test Camera" to preview</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;">
+                <button class="btn btn-secondary btn-sm" id="zoomTestCamera" type="button">🎥 Test Camera</button>
+                <button class="btn btn-secondary btn-sm" id="zoomTestMic" type="button">🎤 Test Microphone</button>
+              </div>
+
+              <div id="zoomMicLevel" style="display: none; margin-bottom: 20px;">
+                <label style="font-size: 0.82rem; color: var(--color-text-light);">Microphone Level:</label>
+                <div style="background: var(--color-sand); border-radius: 4px; height: 8px; overflow: hidden;">
+                  <div id="zoomMicBar" style="height: 100%; background: var(--color-sage-dark); width: 0%; transition: width 0.1s;"></div>
+                </div>
+              </div>
+
+              <button class="btn btn-gold" id="zoomJoinBtn" style="width: 100%; justify-content: center; font-size: 1.05rem;" type="button">
+                🎥 Request Free 5 Min Consultation
+              </button>
+
+              <p style="text-align: center; font-size: 0.82rem; color: var(--color-text-light); margin-top: 16px;">
+                Your camera and microphone will activate when you join. The consultation runs entirely in this browser window.
+              </p>
+            </div>
+
+            <!-- Quick-join for users who already have a link -->
+            <div style="margin-top: 24px; padding: 20px; background: rgba(195,177,225,0.1); border-radius: var(--radius-sm); border: 1px solid rgba(195,177,225,0.3); text-align: center;">
+              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px;">
+                <strong>Don't have a Meeting ID yet?</strong>
+              </p>
+              <p style="font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 16px;">
+                Schedule your free consultation first, and Paola will send you the meeting details.
+              </p>
+              <button class="btn btn-secondary btn-sm" onclick="document.querySelector('[data-tab=schedule]').click();">📅 Schedule First</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Zoom Container (hidden until join) -->
+        <div id="zoomMeetingContainer" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="margin: 0;">☽ Live Consultation with Paola</h3>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span id="zoomCallTimer" style="font-size: 0.88rem; color: var(--color-text-light);">00:00</span>
+              <button class="btn btn-secondary btn-sm" id="zoomLeaveBtn" type="button" style="background: #e74c3c; color: #fff; border-color: #e74c3c;">End Call</button>
+            </div>
+          </div>
+          <!-- Zoom SDK renders its UI here -->
+          <div id="zoomSDKElement" style="width: 100%; min-height: 65vh; background: var(--color-midnight); border-radius: var(--radius-md); overflow: hidden; position: relative;"></div>
         </div>
       </div>
 
@@ -326,9 +419,19 @@
   </footer>
 
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Zoom Meeting SDK (Component View) -->
+  <link rel="stylesheet" href="https://source.zoom.us/3.11.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://source.zoom.us/3.11.0/css/react-select.css">
+  <script src="https://source.zoom.us/3.11.0/lib/vendor/react.min.js"></script>
+  <script src="https://source.zoom.us/3.11.0/lib/vendor/react-dom.min.js"></script>
+  <script src="https://source.zoom.us/3.11.0/lib/vendor/redux.min.js"></script>
+  <script src="https://source.zoom.us/3.11.0/lib/vendor/redux-thunk.min.js"></script>
+  <script src="https://source.zoom.us/3.11.0/lib/vendor/lodash.min.js"></script>
+  <script src="https://source.zoom.us/zoom-meeting-3.11.0.min.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/media-config.js"></script>
   <script src="../js/instagram-feed.js"></script>
+  <script src="../js/zoom-consultation.js"></script>
   <script src="../js/consultation.js"></script>
 </body>
 </html>
